@@ -13,16 +13,13 @@ const CartItem = ({ onContinueShopping }) => {
 
     cart.forEach(item => {
         const itemPrice = parseFloat(item.cost.substring(1)) * item.quantity;
-        console.log('item pric', itemPrice)
-        console.log('totoal before', total)
         total += itemPrice;
-        console.log('totalt after', total)
     })
     return total;
   };
 
   const handleContinueShopping = (e) => {
-   
+   onContinueShopping(e)
   };
 
 
@@ -42,6 +39,10 @@ const CartItem = ({ onContinueShopping }) => {
     const cost = parseFloat(item.cost.substring(1)) * item.quantity;
     return cost;
   };
+
+  const handleCheckoutShopping = (e) => {
+    alert('Funtionality to be added for future reference');
+  }
 
   return (
     <div className="cart-container">
@@ -68,7 +69,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button onClick={(e) => handleCheckoutShopping(e)} className="get-started-button1">Checkout</button>
       </div>
     </div>
   );
